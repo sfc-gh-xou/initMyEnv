@@ -13,10 +13,10 @@ if [[ ! $1 = "-a" ]]; then
     read -p "Your Git Name: " git_name
     read -p "Your Git Mail: " git_email
 else
-    user_name="Hanxiao"
-    user_mail="hah114@ucsd.edu"
-    git_name="HansSJTU"
-    git_email="Hanshosjtu@gmail.com"
+    user_name="Xinyue"
+    user_mail="stillshiner@gmail.com"
+    git_name="plrectco"
+    git_email="xy.ou@foxmail.com"
 fi
 read -sp "Your Git Password: " git_passwd
 echo -ne "\n"
@@ -99,6 +99,8 @@ if [ "$(uname)" == "Darwin" ]; then
     source "${base_dir}/configs/bashrc"
     type sed 1>&2
 fi
+
+${base_dir}/other_install/install_bash.sh
 
 cp ${base_dir}/configs/bash_alias ~/.bash_alias
 cp ${base_dir}/configs/bash_func ~/.bash_func; sed -i "s?#GITNAME#?${git_name}?g;s?#GITPASSWD#?${git_passwd}?g" ~/.bash_func

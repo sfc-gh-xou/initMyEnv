@@ -59,7 +59,7 @@ set_theme() {
 # | ===========================================
 TERMINAL=$(ps -p $(ps -p $(ps -p $$ -o ppid=) -o ppid=) -o args=)
 
-if [ $TERMINAL = "pantheon-terminal" ]; then
+if [ "$TERMINAL" = "pantheon-terminal" ]; then
     # |
     # | Applying values on pantheon-terminal
     # | ===========================================
@@ -68,7 +68,7 @@ if [ $TERMINAL = "pantheon-terminal" ]; then
     gsettings set org.pantheon.terminal.settings cursor-color "${CURSOR_COLOR}"
     gsettings set org.pantheon.terminal.settings palette "${COLOR_01}:${COLOR_02}:${COLOR_03}:${COLOR_04}:${COLOR_05}:${COLOR_06}:${COLOR_07}:${COLOR_08}:${COLOR_09}:${COLOR_10}:${COLOR_11}:${COLOR_12}:${COLOR_13}:${COLOR_14}:${COLOR_15}:${COLOR_16}"
 
-elif [ $TERMINAL = "mate-terminal" ]; then
+elif [ "$TERMINAL" = "mate-terminal" ]; then
     # |
     # | Applying values on pantheon-terminal
     # | ===========================================
@@ -165,6 +165,7 @@ else
             # update profile values with theme options
 	    set_theme
 	    dset palette "['${COLOR_01}', '${COLOR_02}', '${COLOR_03}', '${COLOR_04}', '${COLOR_05}', '${COLOR_06}', '${COLOR_07}', '${COLOR_08}', '${COLOR_09}', '${COLOR_10}', '${COLOR_11}', '${COLOR_12}', '${COLOR_13}', '${COLOR_14}', '${COLOR_15}', '${COLOR_16}']"
+        echo "set theme"
 
             unset PROFILE_NAME
             unset PROFILE_SLUG
