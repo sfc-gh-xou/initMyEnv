@@ -18,7 +18,6 @@ else
     git_name="plrectco"
     git_email="xy.ou@foxmail.com"
 fi
-read -sp "Your Git Password: " git_passwd
 echo -ne "\n"
 
 shopt -s expand_aliases

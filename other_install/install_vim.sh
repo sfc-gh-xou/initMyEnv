@@ -15,15 +15,15 @@ if [ ! -d ~/.vim_runtime ]; then
     bash ~/.vim_runtime/install_awesome_vimrc.sh
 fi
 
+pushd ~/.vim_runtime > /dev/null
+bash getmyplugins.sh
+popd > /dev/null
+
 #set up vim-template
 if [[ -z ${user_name} || -z ${user_mail} ]]; then
     :;
 else
-    pushd ~/.vim_runtime/sources_forked/vim-template/templates > /dev/null
-    sed -i "s?%DATE%?%DATE%?g;s?%MAIL%?${user_mail}?g;s?%USER%?${user_name}?g;s?YEAR?DATE?g" *
-    popd > /dev/null
+    echo "let g:tmpl_author_email = '${user_mail}'" >> ~/.vim_runtime/my_configs.vim
+    echo "let g:tmpl_author_name = '${user_name}'" >> ~/.vim_runtime/my_configs.vim
 fi
 
-pushd ~/.vim_runtime > /dev/null
-bash getmyplugins.sh
-popd > /dev/null

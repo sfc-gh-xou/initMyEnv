@@ -5,6 +5,8 @@
 [user]
 	name = #NAME#
 	email = #MAIL#
+[credential]
+    helper = store
 [diff]
 	tool = vimdiff
 [difftool]
