@@ -81,18 +81,17 @@ function backup_and_copy
     fi
 }
 
-backup_and_copy ~/.bash_alias
-backup_and_copy ~/.bash_func
-backup_and_copy ~/.bashrc
+# backup_and_copy ~/.bash_alias
+# backup_and_copy ~/.bash_func
+# backup_and_copy ~/.bashrc
 backup_and_copy ~/.tmux.conf
-backup_and_copy ~/.vim_runtime/my_configs.vim
-backup_and_copy ~/.vimrc
+# backup_and_copy ~/.vim_runtime/my_configs.vim
+# backup_and_copy ~/.vimrc
 backup_and_copy ~/.gitconfig
 backup_and_copy ~/.bash_profile
 backup_and_copy ~/.inputrc
 backup_and_copy ~/Library/Preferences/com.apple.Terminal.plist #terminal theme binary config
 
-${base_dir}/other_install/install_vim.sh ${user_name} ${user_mail}
 
 # config for sed
 if [ "$(uname)" == "Darwin" ]; then
@@ -101,13 +100,14 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 ${base_dir}/other_install/install_bash.sh
+${base_dir}/other_install/install_vim.sh ${user_name} ${user_mail}
 
-cp ${base_dir}/configs/bash_alias ~/.bash_alias
-cp ${base_dir}/configs/bash_func ~/.bash_func; sed -i "s?#GITNAME#?${git_name}?g;s?#GITPASSWD#?${git_passwd}?g" ~/.bash_func
-cp ${base_dir}/configs/bashrc ~/.bashrc
+# cp ${base_dir}/configs/bash_alias ~/.bash_alias
+# cp ${base_dir}/configs/bash_func ~/.bash_func; sed -i "s?#GITNAME#?${git_name}?g;s?#GITPASSWD#?${git_passwd}?g" ~/.bash_func
+# cp ${base_dir}/configs/bashrc ~/.bashrc
 cp ${base_dir}/configs/inputrc ~/.inputrc
 cp ${base_dir}/configs/tmux.conf ~/.tmux.conf
-cp ${base_dir}/configs/my_configs.vim ~/.vim_runtime/
+# cp ${base_dir}/configs/my_configs.vim ~/.vim_runtime/
 cp ${base_dir}/configs/gitconfig ~/.gitconfig; sed -i "s?#NAME#?${git_name}?g;s?#MAIL#?${git_email}?g" ~/.gitconfig
 cp ${base_dir}/configs/git-completion.bash ~/.git-completion.bash
 cp ${base_dir}/configs/bash_profile ~/.bash_profile
@@ -145,5 +145,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     sed -i "s@pbcopy@xsel@g" ~/.vim_runtime/my_configs.vim
     sed -i "s@pbcopy@xsel@g" ~/.bash_func
 fi
+
+
 
 echo "${orange}done${endcolor}"

@@ -11,7 +11,7 @@ user_mail="$2"
 
 if [ ! -d ~/.vim_runtime ]; then
     echo "Start to Setting Up Vim..."
-    git clone --depth=1 https://github.com/HansSJTU/vimrc ~/.vim_runtime
+    git clone --depth=1 https://github.com/plrectco/vimrc ~/.vim_runtime
     bash ~/.vim_runtime/install_awesome_vimrc.sh
 fi
 
@@ -23,3 +23,7 @@ else
     sed -i "s?%DATE%?%DATE%?g;s?%MAIL%?${user_mail}?g;s?%USER%?${user_name}?g;s?YEAR?DATE?g" *
     popd > /dev/null
 fi
+
+pushd ~/.vim_runtime > /dev/null
+bash getmyplugins.sh
+popd > /dev/null

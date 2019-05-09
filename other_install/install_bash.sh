@@ -1,7 +1,7 @@
 if [ ! -d ~/.bash_it ]; then
     echo "Start to Setting Up Bash..."
-    git clone --depth=1 https://github.com/Bash-it/bash-it.git ~/.bash_it
-    bash ~/.bash_it/install.sh --silence
+    git clone --depth=1 https://github.com/plrectco/bash-it.git ~/.bash_it
+    bash ~/.bash_it/install.sh --silent
 
     # setting up theme
     # install powerline fonts
