@@ -86,7 +86,7 @@ function backup_and_copy
 # backup_and_copy ~/.bashrc
 backup_and_copy ~/.tmux.conf
 # backup_and_copy ~/.vim_runtime/my_configs.vim
-# backup_and_copy ~/.vimrc
+backup_and_copy ~/.vimrc
 backup_and_copy ~/.gitconfig
 backup_and_copy ~/.bash_profile
 backup_and_copy ~/.inputrc
