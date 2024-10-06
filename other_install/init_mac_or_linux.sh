@@ -20,6 +20,7 @@ else
 fi
 echo -ne "\n"
 
+# Change the terminal to expand aliases
 shopt -s expand_aliases
 source "${base_dir}/configs/bash_alias"
 source "${base_dir}/configs/bash_func"
@@ -30,7 +31,8 @@ if [ "$(uname)" == "Darwin" ]; then
     plugin_file="${base_dir}/configs/install.mac"
     os_name="OSX"
     command -v brew >/dev/null 2>&1 || { ${base_dir}/other_install/install_brew.sh; }
-    sudo easy_install pip
+    # easy_install has been deprecated
+    # sudo easy_install pip
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "${green}[Operation System Detect]${endcolor} Linux "
     plugin_file="${base_dir}/configs/install.linux"
@@ -89,7 +91,7 @@ backup_and_copy ~/.vimrc
 backup_and_copy ~/.gitconfig
 backup_and_copy ~/.bash_profile
 backup_and_copy ~/.inputrc
-backup_and_copy ~/Library/Preferences/com.apple.Terminal.plist #terminal theme binary config
+# backup_and_copy ~/Library/Preferences/com.apple.Terminal.plist #terminal theme binary config
 
 
 # config for sed
@@ -109,10 +111,10 @@ cp ${base_dir}/configs/tmux.conf ~/.tmux.conf
 # cp ${base_dir}/configs/my_configs.vim ~/.vim_runtime/
 cp ${base_dir}/configs/gitconfig ~/.gitconfig; sed -i "s?#NAME#?${git_name}?g;s?#MAIL#?${git_email}?g" ~/.gitconfig
 cp ${base_dir}/configs/git-completion.bash ~/.git-completion.bash
-cp ${base_dir}/configs/bash_profile ~/.bash_profile
-if [ ! -e ~/.web_list ]; then
-    cp ${base_dir}/configs/web_list ~/.web_list
-fi
+# cp ${base_dir}/configs/bash_profile ~/.bash_profile
+# if [ ! -e ~/.web_list ]; then
+#     cp ${base_dir}/configs/web_list ~/.web_list
+# fi
 
 # config the tmux with different version
 tmux_version=$(tmux -V | awk '{print $2}')
@@ -126,16 +128,9 @@ if [ "$(uname)" == "Darwin" ]; then
     # reconfig the tmux
     sed -i "s@#MAC @@" ~/.tmux.conf
     # cp termianl theme
-    cp ${base_dir}/configs/macTerminalTheme/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
+    # cp ${base_dir}/configs/macTerminalTheme/com.apple.Terminal.plist ~/Library/Preferences/com.apple.Terminal.plist
     # change the jsoncpp include dir to make the same as in Linux
-    if [ -d /usr/local/include/json ]; then
-        rm -r /usr/local/include/json
-        mkdir /usr/local/include/jsoncpp
-        pushdd /usr/local/include/jsoncpp
-        ln -s ../../Cellar/jsoncpp/*/include/json/ .
-        popdd
-    fi
-    echo "${orange}[Tips]${endcolor} If terminal theme dose not change, use ./configs/macTerminalTheme/Xcode_style.terminal to manually change!"
+    # echo "${orange}[Tips]${endcolor} If terminal theme dose not change, use ./configs/macTerminalTheme/Xcode_style.terminal to manually change!"
 
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # reconfig the tmux

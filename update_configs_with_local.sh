@@ -10,7 +10,7 @@ function update_config
         if [ $# -eq 2 ]; then
             cp "$1" "$2"
         elif [ $# -eq 1 ]; then
-            cp "$1" configs/${1##*/}
+            cp "$1" configs/${1}
         fi
     fi
 }

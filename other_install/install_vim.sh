@@ -13,11 +13,10 @@ if [ ! -d ~/.vim_runtime ]; then
     echo "Start to Setting Up Vim..."
     git clone --depth=1 https://github.com/plrectco/vimrc ~/.vim_runtime
     bash ~/.vim_runtime/install_awesome_vimrc.sh
+    pushd ~/.vim_runtime > /dev/null
+    bash getmyplugins.sh
+    popd > /dev/null
 fi
-
-pushd ~/.vim_runtime > /dev/null
-bash getmyplugins.sh
-popd > /dev/null
 
 #set up vim-template
 if [[ -z ${user_name} || -z ${user_mail} ]]; then
