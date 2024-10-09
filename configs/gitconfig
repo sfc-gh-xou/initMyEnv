@@ -21,6 +21,7 @@
 [color]
 	ui = true
 [core]
+    pager = less -FRX
 	editor = /usr/bin/vim
 	ignorecase = false
 [alias]
