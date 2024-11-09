@@ -108,6 +108,7 @@ ${base_dir}/other_install/install_vim.sh ${user_name} ${user_mail}
 # cp ${base_dir}/configs/bashrc ~/.bashrc
 cp ${base_dir}/configs/inputrc ~/.inputrc
 cp ${base_dir}/configs/tmux.conf ~/.tmux.conf
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 # cp ${base_dir}/configs/my_configs.vim ~/.vim_runtime/
 cp ${base_dir}/configs/gitconfig ~/.gitconfig; sed -i "s?#NAME#?${git_name}?g;s?#MAIL#?${git_email}?g" ~/.gitconfig
 cp ${base_dir}/configs/git-completion.bash ~/.git-completion.bash

@@ -1,10 +1,11 @@
 [filter "lfs"]
-	smudge = git-lfs smudge %f
+	smudge = git-lfs smudge -- %f
 	required = true
-	clean = git-lfs clean %f
+	clean = git-lfs clean -- %f
+	process = git-lfs filter-process
 [user]
-	name = #NAME#
-	email = #MAIL#
+	name = Xinyue Ou
+	email = "xinyue.ou@snowflake.com"
 [credential]
     helper = store
 [diff]
@@ -16,6 +17,8 @@
 [mergetool]
 	prompt = false
 	keepBackup = false
+[push]
+    default = current
 [help]
 	autocorrect = 1
 [color]
@@ -26,3 +29,5 @@
 	ignorecase = false
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+[url "git@github.com:"]
+	insteadOf = https://github.com/
