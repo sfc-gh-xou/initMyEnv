@@ -20,3 +20,6 @@ function rebase {
 function work {
 	SHELL=/usr/local/bin/zsh tmux new-session -A -s $1
 }
+
+# Otherwise ctrl-R doesn't work in Tmux
+bindkey '^R' history-incremental-search-backward
